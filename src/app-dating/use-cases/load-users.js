@@ -2,7 +2,7 @@ import { localUserToModel } from "../mappers/localhost-user.mapper";
 
 
 export const loadUsers = async (page) => {
-    const url = 'https://randomuser.me/api/?results=15'
+    const url = `https://randomuser.me/api/?results=15`
     const res = await fetch(url)
     const data = await res.json();
 
@@ -12,3 +12,5 @@ export const loadUsers = async (page) => {
     return users;
 
 }
+
+//https://randomuser.me/api/?results=15

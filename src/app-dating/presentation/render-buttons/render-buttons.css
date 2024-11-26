@@ -1,11 +1,13 @@
 .div-filters {
     display: flex;
+    min-width: 450px;
     justify-content: end;
     padding-right: 90px;
 }
 
 .button-favorite {
     border: 0px;
+    border-radius: 15px;
 }
 
 .img-heart {
@@ -15,6 +17,7 @@
 
 .button-gender {
     border: 5px solid #f44;
+    border-radius: 15px;
     margin-left: 20px;
     width: 200px;
     height: 50px;
