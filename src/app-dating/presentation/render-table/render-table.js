@@ -21,12 +21,15 @@ const sectionDeleteListener = async (event) => {
     if (!element) return;
 
     const id = element.getAttribute('data-id')
-    await usersStore.deleteUser(id)
-    console.log(id)
+    await usersStore.deleteUser(id);
+    
+    
     renderSection();
 }
+
 export const renderSection = (element) => {
     const users = usersStore.getUsers();
+    
     if (!section) {
         section = createSection();
         element.append(section);
@@ -38,7 +41,7 @@ export const renderSection = (element) => {
     let sectionHTML = '';
     users.forEach(user => {
         sectionHTML += `
-              <div class = "user-section">
+              <div class = "user-section" data-id-div="${user.fullId}">
                  <div class ="buttons-user">
                   <button class="select-user" data-id="${user.fullId}">select</button>
                   <button class="delete-user" data-id="${user.fullId}">X</button>

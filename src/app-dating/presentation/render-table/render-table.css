@@ -34,9 +34,10 @@ img {
 }
 
 .delete-user {
-    margin-left: 100px;
-    border-radius: 10px;
-    background-color: #f33;
+    margin-left: 70px;
+    width: 50px;
+    border-radius: 18px;
+    background-color: #f66;
     color: #fff;
 
 }

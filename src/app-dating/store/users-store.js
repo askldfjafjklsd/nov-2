@@ -5,44 +5,43 @@ const state = {
 
     users: [],
 }
+
 const loadPage = async () => {
     const users = await loadUsers()
     state.users = users;
 }
 
 const onUserChangedFavorite = async (id) => {
-    const users = await loadUsers()
-    state.users = users;
-    state.users = state.users.map(user => {
+    const users = state.users;
+    users.map(user => {
         if (user.fullId === id) {
+            
             user.isFavorite = !user.isFavorite;
         }
-        return state.users;
+        users;
     })
 }
-const filterFavorites = async () => {
-    const users = await loadUsers()
-    state.users = users;
-    state.users = state.users.map(user => {
-        if (user.isFavorite === 'true') {
-            return user;
-        }
-        return state.users;
+const filterFavorites =  () => {
+    const users = state.users;
+    users.map(user => {
+        const usersIsFavorites = user => user.isFavorite == true;
+        const newUsers = users.filter(usersIsFavorites);
+        newUsers;
     })
+    users = newUsers;
+    
 }
 const filterM = async () => {
-    const users = await loadUsers()
-    state.users = users;
-    state.users = state.users.map(user => {
+    const users = state.users;
+    users.map(user => {
         if (user.gender === 'male') {
-            return user;
+            document.querySelector(`[data-id-div="${user.fullId}]`)?.remove();
         }
-        return state.users;
+        users;
     })
 }
 const filterF = async () => {
-    const users = await loadUsers()
-    state.users = users;
+    
     state.users = state.users.map(user => {
         if (user.gender === 'female') {
             return user;
@@ -52,13 +51,14 @@ const filterF = async () => {
 }
 
 const deleteUser = async (id) => {
-    const users = await loadUsers()
-    state.users = users;
+    
+    const users = state.users;
 
     const index = users.findIndex((user)=>{
         return user.fullId == id;
     })
-    users.splice(index, 1)
+    users.splice(index, 1);
+    
       
 }
 
