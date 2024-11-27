@@ -21,32 +21,30 @@ const onUserChangedFavorite = async (id) => {
         users;
     })
 }
-const filterFavorites =  () => {
+const filterFavorites = async () => {
     const users = state.users;
     users.map(user => {
         const usersIsFavorites = user => user.isFavorite == true;
         const newUsers = users.filter(usersIsFavorites);
-        newUsers;
+        users;
     })
-    users = newUsers;
+    
     
 }
 const filterM = async () => {
     const users = state.users;
     users.map(user => {
-        if (user.gender === 'male') {
-            document.querySelector(`[data-id-div="${user.fullId}]`)?.remove();
-        }
-        users;
+        const usersIsMale = user => user.gender == 'male';
+        const newUsers = users.filter(usersIsMale);
+        newUsers;
     })
 }
 const filterF = async () => {
-    
-    state.users = state.users.map(user => {
-        if (user.gender === 'female') {
-            return user;
-        }
-        return state.users;
+    const users = state.users;
+    users.map(user => {
+        const usersIsFemale = user => user.gender == 'female';
+        const newUsers = users.filter(usersIsFemale);
+        newUsers;
     })
 }
 
